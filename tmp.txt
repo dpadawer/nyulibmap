@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!-- filename: find-b-nyu01 -->
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>NYU Public Catalog - Basic Search</title>
+<!-- filename: meta-tags -->
+<meta content="no-cache" http-equiv="Cache-Control"/>
+<meta content="no-cache" http-equiv="Pragma"/>
+<meta content="Sun, 06 Nov 1994 08:49:37 GMT" http-equiv="Expires"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="http://aleph.library.nyu.edu:80/bobcat/css/main.css" rel="stylesheet" type="text/css"/>
+<script src="http://library.nyu.edu/scripts/load_js.js?load=jquery,jquery-ui&amp;theme=nyulibraries_gray&amp;plugins=jquery.query,jquery.validate" type="text/javascript"></script>
+<script src="http://aleph.library.nyu.edu:80/bobcat/scripts/common.js" type="text/javascript"></script>
+<script type="text/javascript"> 
+      <!-- 
+        function setCookie() { 
+          document.cookie = "ALEPH_SESSION_ID = IJ29Q7S7XNLP3GNLY4VJ2MD5VB4HDAMFX6KUM61D94N1NLH9S3; path = /"; 
+        } 
+      // --> 
+    </script>
+</head>
+<body class="search" id="basic" onload="javascript:setCookie();window.document.form1.request.focus();">
+<!-- filename: head-1-nobor -->
+<div id="banner">
+<h1><img alt="BobCat" src="http://aleph.library.nyu.edu:80/bobcat/images/banner.jpg"/></h1>
+</div>
+<div class="feedbackbar" id="feedbackbar">
+<p> </p>
+</div>
+<div id="nav1">
+<ul>
+<li id="nav1search"><a href="http://aleph.library.nyu.edu:80/F/IJ29Q7S7XNLP3GNLY4VJ2MD5VB4HDAMFX6KUM61D94N1NLH9S3-01509?func=find-b-0">New Search</a></li>
+<li id="nav1results"><a href="http://aleph.library.nyu.edu:80/F/IJ29Q7S7XNLP3GNLY4VJ2MD5VB4HDAMFX6KUM61D94N1NLH9S3-01510?func=short">Current Results</a></li>
+<li id="nav1history"><a href="http://aleph.library.nyu.edu:80/F/IJ29Q7S7XNLP3GNLY4VJ2MD5VB4HDAMFX6KUM61D94N1NLH9S3-01511?func=history">Search History</a></li>
+<li id="nav1endsession"><a href="http://aleph.library.nyu.edu:80/F/IJ29Q7S7XNLP3GNLY4VJ2MD5VB4HDAMFX6KUM61D94N1NLH9S3-01512?func=file&amp;file_name=logout">Clear My Searches</a></li>
+<li id="nav1myaccount"><a href="http://library.nyu.edu/patron" target="_blank">My Account</a></li>
+</ul>
+</div>
+<div id="content">
+<!-- find-include-buttons -->
+<div id="nav2">
+<ul>
+<li id="nav2basic">
+<a href="http://aleph.library.nyu.edu:80/F/IJ29Q7S7XNLP3GNLY4VJ2MD5VB4HDAMFX6KUM61D94N1NLH9S3-01513?local_base=NYU01PUB&amp;func=find-b-0" title="Find records by keyword search.">Basic</a>
+</li>
+<li id="nav2advanced">
+<a href="http://aleph.library.nyu.edu:80/F/IJ29Q7S7XNLP3GNLY4VJ2MD5VB4HDAMFX6KUM61D94N1NLH9S3-01514?func=find-d-0" title="Find records by advanced keyword search.">Expert</a>
+</li>
+</ul>
+</div>
+<div id="main">
+<!-- filename: find-b-head -->
+<div class="section" id="keyword">
+<form action="http://aleph.library.nyu.edu:80/F/IJ29Q7S7XNLP3GNLY4VJ2MD5VB4HDAMFX6KUM61D94N1NLH9S3-01515" class="searchform" id="form1" method="get" name="form1">
+<fieldset>
+<input name="func" type="hidden" value="find-b"/>
+<input checked="" name="adjacent" type="hidden" value="N"/>
+<h3>Search by Keyword(s)</h3>
+<!-- filename: base-list-include-nyu01 -->
+<input name="local_base" type="hidden" value="NYU01PUB"/>
+<div id="request-div">
+<input class="text" name="request" type="text" value="black holes"/> 
+        in 
+<!-- filename: find-code-include-nyu01 -->
+<select name="find_code">
+<option selected="" value="WRD">All Fields</option>
+<option value="WTI">Title</option>
+<option value="WAU">Author</option>
+<option value="WSU">Subject</option>
+<option value="WSRS1">Series</option>
+<option value="ISBN">ISBN</option>
+<option value="ISSN">ISSN</option>
+<option value="SYS">BIB Doc Number</option>
+</select>
+<input class="submit" type="submit" value="Search"/>
+</div>
+</fieldset>
+<!-- filename: find-include-filter-nyu01 -->
+<div id="limits-block">
+<div id="showlimits">
+<a href="" onclick="bs_toggle_limits(); return false;">Limit this <span id="keyword">Keyword</span> Search</a> 
+    by location, language, date or format such as video <em>(optional)</em>
+</div>
+<div id="hidelimits" style="display: none;">
+<a href="" onclick="bs_toggle_limits(); return false;">Hide Limits</a>
+</div>
+<fieldset id="limits" style="display: none;">
+<input name="filter_code_1" type="hidden" value="WLN"/>
+<input name="filter_code_2" type="hidden" value="WYR"/>
+<input name="filter_code_3" type="hidden" value="WYR"/>
+<input name="filter_code_4" type="hidden" value="WFM">
+<input name="filter_code_5" type="hidden" value="WLC">
+<div>
+<label>Location:</label>
+<select name="filter_request_5">
+<option value="">All</option>
+<option value="BOBST">NYU Bobst</option>
+<option value="BAFC">NYU Bobst Avery Fisher</option>
+<option value="BFALE">NYU Bobst Fales</option>
+<!--option value="BREF6"                >NYU Bobst 6th Floor Reference</option-->
+<option value="BTAM">NYU Bobst Tamiment</option>
+<option value="NCOUR">NYU Courant</option>
+<option value="NIFA">NYU Institute Fine Arts</option>
+<option value="NIFAC">NYU Inst Fine Arts Conserv</option>
+<option value="NISAW">NYU Inst Study Ancient World</option>
+<option value="NKEV">NYU Kevorkian</option>
+<option value="NLAPI">NYU La Pietra (Italy)</option>
+<option value="NREI">NYU Real Estate</option>
+<option value="KBHS">Brooklyn Historical Society</option>
+<option value="CU">Cooper Union Library</option>
+<option value="TNSFO">New School Fogelman</option>
+<option value="TNSGI">New School Gimbel</option>
+<option value="TNSKE">New School Kellen Archives</option>
+<option value="TNSSC">New School Scherman</option>
+<option value="NYHS">New-York Historical Society</option>
+<option value="NYSID">NY School Interior Design</option>
+</select>
+</div>
+<div>
+<label>Language:</label>
+<select name="filter_request_1">
+<option value="">All</option>
+<option value="ENG">English</option>
+<option value="ARA">Arabic</option>
+<option value="BEN">Bengali</option>
+<option value="CHI">Chinese</option>
+<option value="CZE">Czech</option>
+<option value="DUT">Dutch</option>
+<option value="FRE">French</option>
+<option value="GER">German</option>
+<option value="GRC">Greek, Ancient</option>
+<option value="GRE">Greek, Modern</option>
+<option value="HEB">Hebrew</option>
+<option value="HIN">Hindi</option>
+<option value="HUN">Hungarian</option>
+<option value="ITA">Italian</option>
+<option value="JPN">Japanese</option>
+<option value="KOR">Korean</option>
+<option value="LAT">Latin</option>
+<option value="PER">Persian</option>
+<option value="POL">Polish</option>
+<option value="POR">Portuguese</option>
+<option value="RUS">Russian</option>
+<option value="SPA">Spanish</option>
+<option value="TUR">Turkish</option>
+</select>
+</div>
+<div>
+<label>Date Range:</label>
+<span>From</span>
+<input class="text" id="dfrom" name="filter_request_2" type="text" value=""/>
+<span>To</span>
+<input class="text" id="dto" name="filter_request_3" type="text" value=""/>
+</div>
+<div>
+<label>Format:</label>
+<select name="filter_request_4">
+<option value="">All</option>
+<option value="BK">Books</option>
+<option value="SE">Serials</option>
+<option value="MU">Music</option>
+<option value="MP">Maps</option>
+<option value="CF">Computer Files</option>
+<option value="VM">Visual Materials</option>
+<option value="MX">Mixed Materials</option>
+</select>
+</div>
+</input></input></fieldset>
+</div>
+</form>
+</div>
+<!-- filename: scan-include-2-nyu01 -->
+<div class="section" id="scan">
+<form action='http://aleph.library.nyu.edu:80/F/IJ29Q7S7XNLP3GNLY4VJ2MD5VB4HDAMFX6KUM61D94N1NLH9S3-01516"' class="searchform" id="form2" method="get" name="form2">
+<fieldset>
+<input name="func" type="hidden" value="scan"/>
+<h3>Browse an <strong>Alphabetical List</strong> of</h3>
+<div id="scan-div">
+<select name="scan_code">
+<option value="TIT">Titles</option>
+<option value="AUT">Authors (Last Name, First Name)</option>
+<option value="SUB">Subjects</option>
+<option value="ALL">Call Numbers</option>
+<option value="SRS">Series</option>
+<option value="PLA">Places of Publication</option>
+<option value="PUB">Publishers</option>
+<option value="REL">Related Names</option>
+<option value="SYS">BIB Doc Numbers</option>
+</select> 
+        beginning with 
+        <input class="text" name="scan_start" type="text" value="black holes"/>
+<input class="submit" type="submit" value="Search"/>
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+<!-- filename: copyrights -->
+<div id="footer">
+<p class="copyright">© 2008 Ex Libris</p>
+</div>
+</body>
+</html>
+
