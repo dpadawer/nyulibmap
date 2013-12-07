@@ -15,7 +15,8 @@ function setUp()
 		var floorNum = returnFloor(callNum);
 		floorElem.innerHTML = "<p>Your book should be on floor <b>" + floorNum + "</b>.";
 		var imgSrc = returnFloorPic(floorNum);
-		imgElem.setAttribute('src', imgSrc);
+		imgElem.setAttribute("src", imgSrc);
+		imgElem.setAttribute("style", "max-width: 100%; height: auto; width: auto;");
 		var divVar = document.getElementById("resultDiv");
 		divVar.appendChild(floorElem);
 		divVar.appendChild(imgElem);
