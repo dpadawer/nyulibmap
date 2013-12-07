@@ -2,147 +2,151 @@
 <html>
 <head>
 <title>
-Bobst Map
+    Bobst Map
 </title>
-
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <style type="text/css">
 @viewport
 {
-	zoom: 1.0;
-	height: extend-to-zoom;
+    zoom: 1.0;
+    height: extend-to-zoom;
 }
-
-body { font-size: 4em; }
+body {
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 3em;
+}
 </style>
 
 <script>
 function setUp()
 {
-	var callNum = getParameter("callNum");
-	if(callNum != "")
-	{
-		var floorElem = document.createElement("div");
-		var imgElem = document.createElement("img");
-		var floorNum = returnFloor(callNum);
-		floorElem.innerHTML = "<p>Your book should be on floor <b>" + floorNum + "</b>.";
-		floorElem.setAttribute("style", "text-align:center");
-		var imgSrc = returnFloorPic(floorNum);
-		imgElem.setAttribute("src", imgSrc);
-		imgElem.setAttribute("style", "width: 90%;");
-		floorElem.appendChild(imgElem);
-		var divVar = document.getElementById("resultDiv");
-		divVar.appendChild(floorElem);
-	}
+    var callNum = getParameter("callNum");
+    if(callNum != "")
+    {
+        var floorElem = document.createElement("div");
+        var imgElem = document.createElement("img");
+        var floorNum = returnFloor(callNum);
+        floorElem.innerHTML = "<p>Your book should be on floor <b>" + floorNum + "</b>.";
+        floorElem.setAttribute("style", "text-align:center");
+        var imgSrc = returnFloorPic(floorNum);
+        imgElem.setAttribute("src", imgSrc);
+        imgElem.setAttribute("style", "width: 90%;");
+        floorElem.appendChild(imgElem);
+        var divVar = document.getElementById("resultDiv");
+        divVar.appendChild(floorElem);
+    }
 }
 
 function getParameter(paramName) 
 {
-	var searchString = window.location.search.substring(1), i, val, params = searchString.split("&");
-	for ( i = 0; i < params.length; i++) 
-	{
-		val = params[i].split("=");
-		if (val[0] == paramName) 
-		{
-			return val[1];
-		}
-	}
-	return null;
+    var searchString = window.location.search.substring(1), i, val, params = searchString.split("&");
+    for ( i = 0; i < params.length; i++) 
+    {
+        val = params[i].split("=");
+        if (val[0] == paramName) 
+        {
+            return val[1];
+        }
+    }
+    return null;
 }
 
 
 function returnFloor(callNum)
 {
-	var patt = /[A-Z]/;
-	firstLet = patt.exec(callNum.toUpperCase());
-	var letterFloors = [
-		["M", 2],
-		["A", 4],
-		["B", 4],
-		["C", 4],
-		["E", 6],
-		["G", 7],
-		["H", 7],
-		["J", 7],
-		["K", 7],
-		["L", 7],
-		["P", 8],
-		["N", 9],
-		["Q", 9],
-		["R", 9],
-		["S", 9],
-		["T", 9],
-		["U", 9],
-		["V", 9],
-		["W", 9],
-		["X", 9],
-		["Y", 9],
-		["Z", 9]
-	];
-	
-	var splitFloors = [
-		"D", "F", 
-	];
-	
-	for(var i = 0; i < letterFloors.length; i++)
-	{
-		if(letterFloors[i][0] == firstLet)
-		{
-			return letterFloors[i][1];
-		}
-	}
+    var patt = /[A-Z]/;
+    firstLet = patt.exec(callNum.toUpperCase());
+    var letterFloors = [
+        ["M", 2],
+        ["A", 4],
+        ["B", 4],
+        ["C", 4],
+        ["E", 6],
+        ["G", 7],
+        ["H", 7],
+        ["J", 7],
+        ["K", 7],
+        ["L", 7],
+        ["P", 8],
+        ["N", 9],
+        ["Q", 9],
+        ["R", 9],
+        ["S", 9],
+        ["T", 9],
+        ["U", 9],
+        ["V", 9],
+        ["W", 9],
+        ["X", 9],
+        ["Y", 9],
+        ["Z", 9]
+            ];
 
-	//D is D-DJ on 4, DJK and up on 6
-	if(firstLet == "D")
-	{
-		if(callNum.charAt(1) < "J" || (callNum.charAt(1) == "J" && callNum.charAt(2) < "K"))
-		{
-			return 4;
-		}
-		else
-		{
-			return 6;
-		}
-	}
-	
-	//F is up to 999 on 6, F1000 and oversize F (?) on 7
-	if(firstLet == "F")
-	{
-		var patt2 = /[0-9]+/;
-		nums = patt2.exec(callNum.substring(1));
-		numsVal = parseInt(nums[0]);
-		
-		if(numsVal <= 999)
-		{
-			return 6;
-		}
-		else
-		{
-			return 7;
-		}
-	}
-	
-	window.alert("Sorry, could not find that call number");
+    var splitFloors = [
+        "D", "F", 
+        ];
+
+    for(var i = 0; i < letterFloors.length; i++)
+    {
+        if(letterFloors[i][0] == firstLet)
+        {
+            return letterFloors[i][1];
+        }
+    }
+
+    //D is D-DJ on 4, DJK and up on 6
+    if(firstLet == "D")
+    {
+        if(callNum.charAt(1) < "J" || (callNum.charAt(1) == "J" && callNum.charAt(2) < "K"))
+        {
+            return 4;
+        }
+        else
+        {
+            return 6;
+        }
+    }
+
+    //F is up to 999 on 6, F1000 and oversize F (?) on 7
+    if(firstLet == "F")
+    {
+        var patt2 = /[0-9]+/;
+        nums = patt2.exec(callNum.substring(1));
+        numsVal = parseInt(nums[0]);
+
+        if(numsVal <= 999)
+        {
+            return 6;
+        }
+        else
+        {
+            return 7;
+        }
+    }
+
+    window.alert("Sorry, could not find that call number");
 }
 
 function returnFloorPic(floorNum)
 {
-	var floorPics = [
-		[2, "floormaps_2012_2.gif"],
-		[4, "floormaps_2012_4.gif"],
-		[5, "floormaps_2012_5.gif"],
-		[6, "floormaps_2013_6.gif"],
-		[7, "7thFloor_Map_2013_web.gif"],
-		[8, "8thfloor_map_2013_web.gif"],
-		[9, "floormaps_2013_9.gif"]
-	];
-	
-	for(var j = 0; j < floorPics.length; j++)
-	{
-		if(floorPics[j][0] == floorNum)
-		{
-			return floorPics[j][1];
-		}
-	}
+    var floorPics = [
+        [2, "floormaps_2012_2.gif"],
+        [4, "floormaps_2012_4.gif"],
+        [5, "floormaps_2012_5.gif"],
+        [6, "floormaps_2013_6.gif"],
+        [7, "7thFloor_Map_2013_web.gif"],
+        [8, "8thfloor_map_2013_web.gif"],
+        [9, "floormaps_2013_9.gif"]
+            ];
+
+    for(var j = 0; j < floorPics.length; j++)
+    {
+        if(floorPics[j][0] == floorNum)
+        {
+            return floorPics[j][1];
+        }
+    }
 
 }
 
@@ -150,18 +154,24 @@ function returnFloorPic(floorNum)
 </head>
 
 <body onload="setUp()">
-	<div id="resultDiv">
+<div class="container">
+    <div class="row">
+        <div class="span6">
+            <div id="resultDiv">
 
-		</div>
-	<div id="superDiv">
-		<div id="searchDiv">
-			<form style="text-align:center">
-				Please enter the call number of the book you are looking for: <br>
-				<input type="text" name="callNum" style="width: 90%; height: 100%">
-				<input type="submit" value="Submit">
-			</form>
-		</div>
-	</div>
+            </div>
+            <div id="superDiv">
+                <div id="searchDiv">
+                    <form style="text-align:center">
+                        Please enter the call number of the book you are looking for: <br>
+                        <input class="form-control" type="text" name="callNum">
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
