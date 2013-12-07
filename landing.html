@@ -6,17 +6,50 @@
 	</title>
 	<script type="text/javascript">
 		
+function getParameter(paramName) 
+{
+	var searchString = window.location.search.substring(1), i, val, params = searchString.split("&");
+	for ( i = 0; i < params.length; i++) 
+	{
+		val = params[i].split("=");
+		if (val[0] == paramName) 
+		{
+			return val[1];
+		}
+	}
+	return null;
+}
+
+function setUp()
+{
+	var queryStr = getParameter("queryStr");
+	if(queryStr == "Pokemon")
+	{
+		document.getElementById("searchDiv").setAttribute("style", "display:none");
+	}
+	else
+	{
+		document.getElementById("resultsDiv").setAttribute("style", "display:none");
+	}
+}
+		
 	</script>
 </head>
-<body>
+<body onload="setUp()">
 	<div id="searchDiv">
 		<form name="input" action="">
 			Search Terms: <input type="text" name="queryStr">
 			<input type="submit" value="Submit">
 		</form>
 	</div>
-	<div id="resultsDiv" style="display:none">
-		
+	<div id="resultsDiv">
+		<div>
+			<a href="main.html?callNum=GV1469.35.P63+P54+2004">Pikachu's Global Adventure: The Rise and Fall of Pokemon by Tobin, Joseph Hay</a>
+			<br>
+			<a href="main.html?callNum=HQ784.T4+M586+2006">Media and the make-believe worlds of children when Harry Potter meets Pokémon in Disneyland by Goetz, Maya</a>
+			<br>
+			<a href="main.html?callNum=GV1469.35.P63+P54+2004">Mit Pokemon in Harry Potters Welt : Medien in den Fantasien von Kindern by Goetz, Maya</a>
+		</div>
 	</div>
 </body>
 </html>
