@@ -4,11 +4,60 @@
 <script>
 function returnFloor(callNum)
 {
-	var patt = /[A-Z]+/;
+	var patt = /[A-Z]/;
 	toSearch = patt.exec(callNum);
 	var letterFloors = [
-		
+		["M", 2],
+		["A", 4],
+		["B", 4],
+		["C", 4],
+		["D", 4],
+		["E", 6],
+		["F", 6],
+		["H", 7],
+		["J", 7],
+		["K", 7],
+		["L", 7],
+		["P", 8],
+		["N", 9],
+		["Q", 9],
+		["R", 9],
+		["S", 9],
+		["T", 9],
+		["U", 9],
+		["V", 9],
+		["W", 9],
+		["X", 9],
+		["Y", 9],
+		["Z", 9]
 	];
+	
+	var floorPics = [
+		[2, "floormaps_2012_2.gif"],
+		[4, "floormaps_2012_4.gif"],
+		[5, "floormaps_2012_5.gif"],
+		[6, "floormaps_2012_6.gif"],
+		[7, "7thFloor_Map_2013_web.gif"],
+		[8, "8thfloor_map_2013_web.gif"],
+		[9, "floormaps_2012_9.gif"]
+	];
+	
+	for(var i = 0; i < letterFloors.length; i++)
+	{
+		if(letterFloors[i][0] == toSearch)
+		{
+			for(var j = 0; j < floorPics.length; j++)
+			{
+				if(floorPics[j][0] == letterFloors[1])
+				{
+					window.navigate(floorPics[j][1]);
+					return;
+				}
+			}
+		}
+	}
+	
+	windows.alert("Sorry, could not find that call number");
 }
 </script>
 </head>
