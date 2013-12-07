@@ -6,6 +6,12 @@ Bobst Map
 </title>
 
 <style type="text/css">
+@viewport
+{
+	zoom: 1.0;
+	height: extend-to-zoom;
+}
+
 body { font-size: 1.5em; }
 </style>
 
@@ -21,7 +27,7 @@ function setUp()
 		floorElem.innerHTML = "<p>Your book should be on floor <b>" + floorNum + "</b>.";
 		var imgSrc = returnFloorPic(floorNum);
 		imgElem.setAttribute("src", imgSrc);
-		imgElem.setAttribute("style", "height: 100%; width: 100%");
+		imgElem.setAttribute("style", "width: 100%;");
 		var divVar = document.getElementById("resultDiv");
 		divVar.appendChild(floorElem);
 		divVar.appendChild(imgElem);
@@ -145,9 +151,9 @@ function returnFloorPic(floorNum)
 <body onload="setUp()">
 	<div id="superDiv">
 		<div id="searchDiv">
-			<form>
+			<form style="text-align:center">
 				Please enter the call number of the book you are looking for: <br>
-				<input type="text" name="callNum" style = "width: 100%; height: 1.75em">
+				<input type="text" name="callNum" style="width: 100%; height: 1.75em">
 				<input type="submit" value="Submit">
 			</form>
 		</div>
