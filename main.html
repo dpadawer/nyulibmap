@@ -12,7 +12,7 @@ Bobst Map
 	height: extend-to-zoom;
 }
 
-body { font-size: 1.5em; }
+body { font-size: 3em; }
 </style>
 
 <script>
@@ -28,7 +28,7 @@ function setUp()
 		floorElem.setAttribute("style", "text-align:center");
 		var imgSrc = returnFloorPic(floorNum);
 		imgElem.setAttribute("src", imgSrc);
-		imgElem.setAttribute("style", "width: 100%;");
+		imgElem.setAttribute("style", "width: 640;");
 		var divVar = document.getElementById("resultDiv");
 		divVar.appendChild(floorElem);
 		divVar.appendChild(imgElem);
