@@ -28,7 +28,7 @@ function setUp()
         var floorElem = document.createElement("div");
         var imgElem = document.createElement("img");
         var floorNum = returnFloor(callNum);
-        floorElem.innerHTML = "callNum <p> should be on floor <b>" + floorNum + "</b>.";
+        floorElem.innerHTML = callNum + "<p> should be on floor <b>" + floorNum + "</b>.";
         floorElem.setAttribute("style", "text-align:center");
         var imgSrc = returnFloorPic(floorNum);
         imgElem.setAttribute("src", imgSrc);
