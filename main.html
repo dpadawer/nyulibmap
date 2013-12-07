@@ -16,7 +16,7 @@ function setUp()
 		floorElem.innerHTML = "<p>Your book should be on floor <b>" + floorNum + "</b>.";
 		var imgSrc = returnFloorPic(floorNum);
 		imgElem.setAttribute('src', imgSrc);
-		var divVar = document.getElementById("bodyDiv");
+		var divVar = document.getElementById("resultDiv");
 		divVar.appendChild(floorElem);
 		divVar.appendChild(imgElem);
 	}
@@ -137,12 +137,15 @@ function returnFloorPic(floorNum)
 </head>
 
 <body onload="setUp()">
-	<div id="bodyDiv">
+	<div id="searchDiv">
 		<form>
 			Please enter the call number of the book you are looking for: <br>
 			<input type="text" name="callNum">
 			<input type="submit" value="Submit">
 		</form>
+	</div>
+	<div id="resultDiv">
+		
 	</div>
 </body>
 
