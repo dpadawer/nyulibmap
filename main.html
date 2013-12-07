@@ -25,6 +25,7 @@ function setUp()
 		var imgElem = document.createElement("img");
 		var floorNum = returnFloor(callNum);
 		floorElem.innerHTML = "<p>Your book should be on floor <b>" + floorNum + "</b>.";
+		floorElem.setAttribute("style", "text-align:center");
 		var imgSrc = returnFloorPic(floorNum);
 		imgElem.setAttribute("src", imgSrc);
 		imgElem.setAttribute("style", "width: 100%;");
