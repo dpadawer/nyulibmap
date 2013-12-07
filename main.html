@@ -2,18 +2,49 @@
 <html>
 <head>
 <script>
+function setUp()
+{
+	var callNum = getParameter("callNum");
+	if(callNum != "")
+	{
+		var floorElem = document.createElement("div");
+		var imgElem = document.createElement("img");
+		var floorNum = returnFloor(callNum);
+		floorElem.innerHTML = "<p>Your book should be on floor <b>" + floorNum + "</b>.";
+		var imgSrc = returnFloorPic(floorNum);
+		imgElem.setAttribute('src', imgSrc);
+		var divVar = document.getElementById("bodyDiv");
+		divVar.appendChild(floorElem);
+		divVar.appendChild(imgElem);
+	}
+}
+
+function getParameter(paramName) 
+{
+	var searchString = window.location.search.substring(1), i, val, params = searchString.split("&");
+	for ( i = 0; i < params.length; i++) 
+	{
+		val = params[i].split("=");
+		if (val[0] == paramName) 
+		{
+			return val[1];
+		}
+	}
+	return null;
+}
+
+
 function returnFloor(callNum)
 {
 	var patt = /[A-Z]/;
-	toSearch = patt.exec(callNum);
+	firstLet = patt.exec(callNum.toUpperCase());
 	var letterFloors = [
 		["M", 2],
 		["A", 4],
 		["B", 4],
 		["C", 4],
-		["D", 4],
 		["E", 6],
-		["F", 6],
+		["G", 7],
 		["H", 7],
 		["J", 7],
 		["K", 7],
@@ -32,39 +63,85 @@ function returnFloor(callNum)
 		["Z", 9]
 	];
 	
-	var floorPics = [
-		[2, "floormaps_2012_2.gif"],
-		[4, "floormaps_2012_4.gif"],
-		[5, "floormaps_2012_5.gif"],
-		[6, "floormaps_2012_6.gif"],
-		[7, "7thFloor_Map_2013_web.gif"],
-		[8, "8thfloor_map_2013_web.gif"],
-		[9, "floormaps_2012_9.gif"]
+	var splitFloors = [
+		"D", "F", 
 	];
 	
 	for(var i = 0; i < letterFloors.length; i++)
 	{
-		if(letterFloors[i][0] == toSearch)
+		if(letterFloors[i][0] == firstLet)
 		{
-			for(var j = 0; j < floorPics.length; j++)
-			{
-				if(floorPics[j][0] == letterFloors[1])
-				{
-					window.navigate(floorPics[j][1]);
-					return;
-				}
-			}
+			return letterFloors[i][1];
+		}
+	}
+
+	//D is D-DJ on 4, DJK and up on 6
+	if(firstLet == "D")
+	{
+		if(callNum.charAt(1) < "J" || (callNum.charAt(1) == "J" && callNum.charAt(2) < "K"))
+		{
+			return 4;
+		}
+		else
+		{
+			return 6;
 		}
 	}
 	
-	windows.alert("Sorry, could not find that call number");
+	//F is up to 999 on 6, F1000 and oversize F (?) on 7
+	if(firstLet == "F")
+	{
+		var patt2 = /[0-9]+/;
+		nums = patt2.exec(callNum.substring(1));
+		numsVal = parseInt(nums[0]);
+		
+		if(numsVal <= 999)
+		{
+			return 6;
+		}
+		else
+		{
+			return 7;
+		}
+	}
+	
+	window.alert("Sorry, could not find that call number");
 }
+
+function returnFloorPic(floorNum)
+{
+	var floorPics = [
+		[2, "floormaps_2012_2.gif"],
+		[4, "floormaps_2012_4.gif"],
+		[5, "floormaps_2012_5.gif"],
+		[6, "floormaps_2013_6.gif"],
+		[7, "7thFloor_Map_2013_web.gif"],
+		[8, "8thfloor_map_2013_web.gif"],
+		[9, "floormaps_2013_9.gif"]
+	];
+	
+	for(var j = 0; j < floorPics.length; j++)
+	{
+		if(floorPics[j][0] == floorNum)
+		{
+			return floorPics[j][1];
+		}
+	}
+
+}
+
 </script>
+
 </head>
-<body>
-<p>
-Please enter the call number of the book you are looking for.
-</p>
-<input type="submit" value="">
+
+<body onload="setUp()">
+	<div id="bodyDiv">
+		<form>
+			Please enter the call number of the book you are looking for: <br>
+			<input type="text" name="callNum">
+			<input type="submit" value="Submit">
+		</form>
+	</div>
 </body>
+
 </html>
