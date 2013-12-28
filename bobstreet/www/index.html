@@ -5,16 +5,15 @@
     Bobst Map
 </title>
 <link href="css/pure-min.css" rel="stylesheet">
-<style type="text/css">
-@viewport
-{
-    zoom: 1.0;
-    height: extend-to-zoom;
-}
+<style>
 body {
-    margin-right: auto;
+    margin-top: 20px;
     margin-left: auto;
-    font-size: 3em;
+    margin-right: auto;
+    width: 80%;
+}
+legend {
+    text-align: center;
 }
 </style>
 
@@ -27,7 +26,7 @@ function setUp()
         var floorElem = document.createElement("div");
         var imgElem = document.createElement("img");
         var floorNum = returnFloor(callNum);
-        floorElem.innerHTML = callNum + "<p> should be on floor <b>" + floorNum + "</b>.";
+        floorElem.innerHTML = callNum + " should be on floor <b>" + floorNum + "</b>.";
         floorElem.setAttribute("style", "text-align:center");
         var imgSrc = returnFloorPic(floorNum);
         imgElem.setAttribute("src", imgSrc);
@@ -153,24 +152,23 @@ function returnFloorPic(floorNum)
 </head>
 
 <body onload="setUp()">
-<div class="container">
-    <div class="row">
-        <div class="span6">
-            <div id="resultDiv">
-
-            </div>
-            <div id="superDiv">
-                <div id="searchDiv">
-                    <form style="text-align:center">
-                        Please enter the call number of the book you are looking for: <br>
-                        <input class="form-control" type="text" name="callNum">
-                        <input class="btn btn-primary" type="submit" value="Submit">
-                    </form>
-                </div>
-            </div>
-        </div>
+<div id="superDiv">
+    <div id="searchDiv">
+        <form class="pure-form">
+            <fieldset class="pure-group">
+                <legend><b>Bobst Book Finder</b></legend>
+                <input class="pure-input-1" type="text" name="callNum" placeholder="Enter Call Number">
+                <button class="pure-button pure-input-1 pure-button-primary" type="submit">
+                    Find Book
+                </button>
+            </fieldset>
+        </form>
     </div>
 </div>
+<div id="resultDiv">
+
+</div>
+
 </body>
 
 </html>
